@@ -1,0 +1,25 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/breakpoints' as *;
+@media screen {
+  
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin: 0 auto;
+  border-radius: $radius-md;
+  background: $color-brand;
+  color: $color-surface;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+
+  @include up(lg) {
+    width: 5rem;
+    height: 5rem;
+    font-size: 1.25rem;
+  }
+}

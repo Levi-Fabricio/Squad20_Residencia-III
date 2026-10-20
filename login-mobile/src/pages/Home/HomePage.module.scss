@@ -1,0 +1,24 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/breakpoints' as *;
+
+.card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  padding: $space-4;
+}
+
+.title {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+
+  @include up(lg) {
+    font-size: 1.75rem;
+  }
+}
+
+.text {
+  margin: $space-2 0 0;
+  color: $color-muted;
+}

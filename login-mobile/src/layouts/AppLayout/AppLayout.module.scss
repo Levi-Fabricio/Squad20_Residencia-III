@@ -1,0 +1,55 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/breakpoints' as *;
+
+
+.shell {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: $color-page;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-3;
+  min-height: 3.25rem;
+  padding: $space-2 $space-3;
+  padding-top: calc(#{$space-2} + env(safe-area-inset-top));
+  background: $color-surface;
+  border-bottom: 1px solid $color-border;
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.main {
+  flex: 1;
+  padding: $space-4 $space-3;
+  padding-bottom: calc(#{$space-5} + env(safe-area-inset-bottom));
+}
+
+.logout {
+  min-height: $touch-min;
+  min-width: $touch-min;
+  padding: 0 $space-2;
+  border: 0;
+  background: transparent;
+  color: $color-brand;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.content {
+  width: 100%;
+  max-width: 45rem;
+  margin-inline: auto;
+
+  @include up(xl) {
+    max-width: 71.25rem;
+  }
+}

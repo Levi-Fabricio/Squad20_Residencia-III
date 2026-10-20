@@ -1,0 +1,96 @@
+@use '../../styles/tokens' as *;
+@use '../../styles/breakpoints' as *;
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding-top: $space-4;
+
+  @include up(md) {
+    padding-top: $space-5;
+  }
+}
+
+.brand {
+  margin-bottom: $space-4;
+}
+
+.headingGroup {
+  text-align: center;
+  margin-bottom: $space-4;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color:#1B2430;
+
+  @include up(lg) {
+    font-size: 2.5rem;
+  }
+}
+
+.subtitle {
+  margin: $space-2 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 100%;
+  color:#5B6675;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: $space-2;
+  margin-top: $space-2;
+}
+
+.forgot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  min-height: $touch-min;
+  padding: 0 $space-2;
+  color: #174A87;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.help {
+  margin: $space-4 0 0;
+  text-align: center;
+  font-size: 12px;
+  line-height: 100%;
+  color: #5B6675;
+}
+
+.error,
+.success {
+  margin: 0 0 $space-3;
+  padding: $space-2 $space-3;
+  border-radius: $radius-sm;
+  font-size: $font-small;
+}
+
+.error {
+  color: $color-danger;
+  background: #fef3f2;
+  border: 1px solid #fecdca;
+}
+
+.success {
+  color: $color-success;
+  background: #ecfdf3;
+  border: 1px solid #abefc6;
+}

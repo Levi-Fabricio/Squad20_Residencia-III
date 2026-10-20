@@ -1,0 +1,52 @@
+@use 'tokens' as *;
+
+$primary: $color-brand;
+$min-contrast-ratio: 4.5;
+$font-size-base: 1rem;
+$enable-negative-margins: false;
+$container-padding-x: 0.75rem;
+
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/reboot';
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  min-width: auto;
+  min-height: auto;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: $font-body;
+  line-height: $line-body;
+  color: $color-text;
+  background: $color-page;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+:focus-visible {
+  outline: 2px solid $color-focus;
+  outline-offset: 2px;
+}
+
+a {
+  color: $color-brand;
+}

@@ -1,0 +1,48 @@
+@use '../../styles/tokens' as *;
+@media screen {
+  
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  width: 100%;
+}
+
+.label {
+  font-size: $font-small;
+  font-weight: 400;
+  color: $color-text;
+}
+
+.control {
+  min-height: $touch-min;
+  width: 100%;
+  padding: 0.75rem $space-3;
+  border: 1.5px solid $color-border;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #8A94A3;
+  font-size: 16px;
+  line-height: 100%;
+
+  &::placeholder {
+    color: $color-muted;
+  }
+
+  &:disabled {
+    background: $color-page;
+  }
+
+  &[aria-invalid='true'] {
+    border-color: $color-danger;
+  }
+}
+
+.error {
+  margin: 0;
+  font-size: $font-small;
+  line-height: 1.4;
+  color: $color-danger;
+}
