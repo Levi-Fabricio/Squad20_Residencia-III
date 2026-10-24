@@ -215,15 +215,15 @@ function ProfilePage() {
         <section className={styles.detailsCard}>
           <h2 className={styles.sectionTitle}>Dados Cadastrais</h2>
           <div className={styles.fieldsGrid}>
-            <TextField id="email" label="E-mail" placeholder="Digite seu e-mail" value={data.email} onChange={setField('email')} readOnly={!editing} className={styles.profileField} />
+            <TextField id="email" label="E-mail" placeholder="Email@exemplo.com" value={data.email} onChange={setField('email')} readOnly={!editing} className={styles.profileField} />
 
-            <TextField id="telefone" label="Telefone" placeholder="Digite seu telefone" value={data.telefone} onChange={setField('telefone')} readOnly={!editing} className={styles.profileField} />
+            <TextField id="telefone" label="Telefone" placeholder="(79) 00000-0000" value={data.telefone} onChange={setField('telefone')} readOnly={!editing} className={styles.profileField} />
 
-            <TextField id="departamento" label="Departamento" placeholder="Digite seu departamento" value={data.departamento} onChange={setField('departamento')} readOnly={!editing} className={`${styles.profileField} ${styles.fieldWide}`} />
+            <TextField id="departamento" label="Departamento" placeholder="Ex.: Administração" value={data.departamento} onChange={setField('departamento')} readOnly={!editing} className={`${styles.profileField} ${styles.fieldWide}`} />
 
-            <TextField id="cargo" label="Cargo" placeholder="Digite seu cargo" value={data.cargo} onChange={setField('cargo')} readOnly={!editing} className={styles.profileField} />
+            <TextField id="cargo" label="Cargo" placeholder="Ex.: Gerente de Frota" value={data.cargo} onChange={setField('cargo')} readOnly={!editing} className={styles.profileField} />
 
-            <TextField id="matricula" label="Matrícula" placeholder="Digite sua matrícula" value={data.matricula} onChange={setField('matricula')} readOnly={!editing} className={styles.profileField} />
+            <TextField id="matricula" label="Matrícula" placeholder="Ex.: 006842" value={data.matricula} onChange={setField('matricula')} readOnly={!editing} className={styles.profileField} />
           </div>
 
           <div className={styles.passwordSummary}>
