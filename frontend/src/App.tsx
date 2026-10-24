@@ -7,7 +7,7 @@ import { DriversPage } from '@/pages/drivers/DriversPage'
 import { HomePage } from '@/pages/home/HomePage'
 import { ComingSoonPage } from '@/pages/placeholder/ComingSoonPage'
 import { NotFoundPage } from '@/pages/placeholder/NotFoundPage'
-import ProfilePage from '@/pages/perfil'
+import ProfilePage from '@/pages/perfil/ProfilePage.module'
 import { VehiclesPage } from '@/pages/vehicles/VehiclesPage'
 
 // Módulos ainda sem tela própria: mesma página provisória, só muda o título.
