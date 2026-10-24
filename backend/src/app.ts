@@ -5,6 +5,8 @@ import { vehicleRoutes } from "./routes/vehicleRoutes";
 import { driverRoutes } from "./routes/driverRoutes";
 import maintanceRoutes from "./routes/maintanceRoutes";
 import notifRoutes from "./routes/notifRoutes";
+import profileRoutes from "./routes/profileRoutes";
+import userProfileRoutes from "./routes/userProfileRoutes";
 
 export const app = express();
 
@@ -16,6 +18,8 @@ app.use("/vehicles", vehicleRoutes);
 app.use("/drivers", driverRoutes);
 app.use("/maintance", maintanceRoutes);
 app.use("/notification", notifRoutes);
+app.use("/perfis", profileRoutes);
+app.use("/usuarios", userProfileRoutes);
 
 export default app;
 
