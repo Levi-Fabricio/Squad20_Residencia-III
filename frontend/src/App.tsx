@@ -10,13 +10,14 @@ import { HomePage } from '@/pages/home/HomePage'
 import { ComingSoonPage } from '@/pages/placeholder/ComingSoonPage'
 import { NotFoundPage } from '@/pages/placeholder/NotFoundPage'
 import ProfilePage from '@/pages/perfil'
+import { RequestFormPage } from '@/pages/requests/RequestFormPage'
+import { RequestTrackingPage } from '@/pages/requests/RequestTrackingPage'
 import { VehiclesPage } from '@/pages/vehicles/VehiclesPage'
 
 // Módulos ainda sem tela própria: mesma página provisória, só muda o título.
 const COMING_SOON_ROUTES = [
   { path: 'abastecimentos', title: 'Abastecimentos' },
   { path: 'manutencoes', title: 'Manutenções' },
-  { path: 'viagens', title: 'Viagens' },
   { path: 'relatorios', title: 'Relatórios' },
 ]
 
@@ -34,6 +35,8 @@ export function AppRoutes() {
           <Route path="motoristas/novo" element={<DriverFormPage />} />
           <Route path="motoristas/editar/:id" element={<DriverFormPage />} />
           <Route path="motoristas/:id" element={<DriverDetailsPage />} />
+          <Route path="viagens" element={<RequestFormPage />} />
+          <Route path="viagens/:id" element={<RequestTrackingPage />} />
           <Route path="perfil" element={<ProfilePage />} />
           <Route path="usuarios" element={<UsersPage />} />
           {COMING_SOON_ROUTES.map(({ path, title }) => (
