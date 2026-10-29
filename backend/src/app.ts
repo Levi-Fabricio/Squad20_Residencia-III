@@ -12,6 +12,7 @@ import notifRoutes from "./routes/notifRoutes";
 import profileRoutes from "./routes/profileRoutes";
 import userProfileRoutes from "./routes/userProfileRoutes";
 import alertRoutes from "./routes/alertRoutes";
+import requestRoutes from "./routes/requestRoutes";
 
 export const app = express();
 
@@ -32,6 +33,7 @@ app.use("/notification", authenticate, notifRoutes);
 app.use("/perfis", authenticate, profileRoutes);
 app.use("/usuarios", authenticate, usersRoutes, userProfileRoutes);
 app.use("/alerts", authenticate, alertRoutes);
+app.use("/solicitacoes", authenticate, requestRoutes);
 
 export default app;
 
