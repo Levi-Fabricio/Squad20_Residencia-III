@@ -29,23 +29,24 @@ export default function RegistrarAbastecimento() {
             <p className={styles.subtitle}>Campos com * são obrigatórios.</p>
             
             <div className={styles.formGroup}>
-              <label>Veículo *</label>
-              <select defaultValue="SVO-01">
+              <label htmlFor="veiculo">Veículo *</label>
+              <select id="veiculo" defaultValue="SVO-01">
                 <option value="SVO-01">SVO-01 · Fiat Fiorino 1.4 · ABC-1D23</option>
               </select>
             </div>
 
             <div className={styles.row}>
               <div className={styles.formGroup}>
-                <label>Motorista *</label>
-                <select defaultValue="Marina">
+                <label htmlFor="motorista">Motorista *</label>
+                <select id="motorista" defaultValue="Marina">
                   <option value="Marina">Marina Costa</option>
                 </select>
               </div>
               <div className={styles.formGroup}>
-                <label>Data e horário *</label>
+                <label htmlFor="dataHora">Data e horário *</label>
                 {/* Campo nativo mostrando dd/mm/aaaa --:-- */}
                 <input 
+                  id="dataHora"
                   type="datetime-local" 
                   value={dataHora}
                   onChange={(e) => setDataHora(e.target.value)}
@@ -59,8 +60,8 @@ export default function RegistrarAbastecimento() {
             
             <div className={styles.row}>
               <div className={styles.formGroup}>
-                <label>Combustível *</label>
-                <select defaultValue="">
+                <label htmlFor="combustivel">Combustível *</label>
+                <select id="combustivel" defaultValue="">
                   <option value="" disabled>Selecione o combustível</option>
                   <option value="Gasolina">Gasolina</option>
                   <option value="Etanol">Etanol</option>
@@ -68,8 +69,9 @@ export default function RegistrarAbastecimento() {
                 </select>
               </div>
               <div className={styles.formGroup}>
-                <label>Hodômetro *</label>
+                <label htmlFor="hodometro">Hodômetro *</label>
                 <input 
+                  id="hodometro"
                   type="text" 
                   placeholder="Ex.: 00.000 km" 
                   value={hodometro}
@@ -80,8 +82,9 @@ export default function RegistrarAbastecimento() {
 
             <div className={styles.row}>
               <div className={styles.formGroup}>
-                <label>Volume abastecido *</label>
+                <label htmlFor="volume">Volume abastecido *</label>
                 <input 
+                  id="volume"
                   type="text" 
                   placeholder="Ex.: 00,00 L" 
                   value={volume} 
@@ -89,8 +92,9 @@ export default function RegistrarAbastecimento() {
                 />
               </div>
               <div className={styles.formGroup}>
-                <label>Preço por litro *</label>
+                <label htmlFor="preco">Preço por litro *</label>
                 <input 
+                  id="preco"
                   type="text" 
                   placeholder="Ex.: 00,00" 
                   value={preco} 
@@ -105,8 +109,8 @@ export default function RegistrarAbastecimento() {
             </div>
 
             <div className={styles.formGroup} style={{ marginTop: '1rem' }}>
-              <label>Posto *</label>
-              <input type="text" placeholder="Ex.: Posto Sul" />
+              <label htmlFor="posto">Posto *</label>
+              <input id="posto" type="text" placeholder="Ex.: Posto Sul" />
             </div>
           </section>
 

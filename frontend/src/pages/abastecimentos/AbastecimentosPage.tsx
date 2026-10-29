@@ -10,8 +10,8 @@ export default function AbastecimentosPage() {
           <p>Acompanhe os registros, os volumes e o teto de gastos de cada veículo.</p>
         </div>
         <Link to="/abastecimentos/registrar" className={styles.btnPrimary}>
-  Registrar abastecimento
-</Link>
+          Registrar abastecimento
+        </Link>
       </header>
 
       {/* Cards de KPI */}
@@ -50,16 +50,20 @@ export default function AbastecimentosPage() {
       {/* Filtros */}
       <div className={styles.filterGrid}>
         <div className={styles.formGroup}>
-          <label>Veículo</label>
-          <select><option>SVO-01 · Fiat Fiorino · ABC-1D23</option></select>
+          <label htmlFor="filtroVeiculo">Veículo</label>
+          <select id="filtroVeiculo">
+            <option>SVO-01 · Fiat Fiorino · ABC-1D23</option>
+          </select>
         </div>
         <div className={styles.formGroup}>
-          <label>Período</label>
-          <select><option>01/10 a 31/10/2026</option></select>
+          <label htmlFor="filtroPeriodo">Período</label>
+          <select id="filtroPeriodo">
+            <option>01/10 a 31/10/2026</option>
+          </select>
         </div>
         <div className={styles.formGroup}>
-          <label>Buscar motorista ou posto</label>
-          <input type="text" placeholder="Buscar nos registros..." />
+          <label htmlFor="filtroBusca">Buscar motorista ou posto</label>
+          <input id="filtroBusca" type="text" placeholder="Buscar nos registros..." />
         </div>
         <button className={styles.btnSecondary} style={{ height: '40px', marginTop: '1.4rem' }}>Filtrar</button>
       </div>
