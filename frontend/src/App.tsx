@@ -1,3 +1,5 @@
+import AbastecimentosPage from '@/pages/abastecimentos/AbastecimentosPage'
+import RegistrarAbastecimento from '@/pages/abastecimentos/registrar/RegistrarAbastecimento'
 import { UsersPage } from '@/pages/users/UsersPage'
 import { RequireAuth } from '@/components/RequireAuth/RequireAuth'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
@@ -10,6 +12,8 @@ import { HomePage } from '@/pages/home/HomePage'
 import { ComingSoonPage } from '@/pages/placeholder/ComingSoonPage'
 import { NotFoundPage } from '@/pages/placeholder/NotFoundPage'
 import ProfilePage from '@/pages/perfil'
+import { RequestFormPage } from '@/pages/requests/RequestFormPage'
+import { RequestTrackingPage } from '@/pages/requests/RequestTrackingPage'
 import { VehiclesPage } from '@/pages/vehicles/VehiclesPage'
 import {
   ManutencoesPage,
@@ -20,6 +24,7 @@ import {
 const COMING_SOON_ROUTES = [
   { path: 'abastecimentos', title: 'Abastecimentos' },
   { path: 'viagens', title: 'Viagens' },
+  { path: 'manutencoes', title: 'Manutenções' },
   { path: 'relatorios', title: 'Relatórios' },
 ]
 
@@ -40,8 +45,12 @@ export function AppRoutes() {
           <Route path="motoristas/novo" element={<DriverFormPage />} />
           <Route path="motoristas/editar/:id" element={<DriverFormPage />} />
           <Route path="motoristas/:id" element={<DriverDetailsPage />} />
+          <Route path="viagens" element={<RequestFormPage />} />
+          <Route path="viagens/:id" element={<RequestTrackingPage />} />
           <Route path="perfil" element={<ProfilePage />} />
           <Route path="usuarios" element={<UsersPage />} />
+          <Route path="abastecimentos" element={<AbastecimentosPage />} />
+          <Route path="abastecimentos/registrar" element={<RegistrarAbastecimento />} />
           {COMING_SOON_ROUTES.map(({ path, title }) => (
             <Route key={path} path={path} element={<ComingSoonPage title={title} />} />
           ))}

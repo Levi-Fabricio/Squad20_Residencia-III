@@ -48,13 +48,37 @@ test('navega pelo menu lateral e marca o item ativo', async () => {
   await user.click(screen.getByRole('button', { name: /abrir menu/i }))
   await user.click(screen.getByRole('link', { name: 'Viagens' }))
 
-  expect(screen.getByRole('heading', { name: 'Viagens' })).toBeInTheDocument()
+  expect(
+    screen.getByRole('heading', { level: 1, name: 'Solicitar Veículo' }),
+  ).toBeInTheDocument()
   await user.click(screen.getByRole('button', { name: /abrir menu/i }))
   expect(screen.getByRole('link', { name: 'Viagens' })).toHaveAttribute(
     'aria-current',
     'page',
   )
+  expect(screen.queryByText(/módulo em construção/i)).not.toBeInTheDocument()
+})
+
+test('mantém a página provisória nos módulos ainda não implementados', async () => {
+  const user = userEvent.setup()
+  renderAt('/')
+
+  await user.click(screen.getByRole('button', { name: /abrir menu/i }))
+  await user.click(screen.getByRole('link', { name: 'Relatórios' }))
+
+  expect(screen.getByRole('heading', { name: 'Relatórios' })).toBeInTheDocument()
   expect(screen.getByText(/módulo em construção/i)).toBeInTheDocument()
+})
+
+test('o acompanhamento da rota também marca Viagens no menu', async () => {
+  const user = userEvent.setup()
+  renderAt('/viagens/qualquer-id')
+
+  await user.click(screen.getByRole('button', { name: /abrir menu/i }))
+  expect(screen.getByRole('link', { name: 'Viagens' })).toHaveAttribute(
+    'aria-current',
+    'page',
+  )
 })
 
 test('mostra a página 404 para rotas desconhecidas', () => {
