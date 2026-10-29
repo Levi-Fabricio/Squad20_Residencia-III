@@ -1,3 +1,5 @@
+import AbastecimentosPage from '@/pages/abastecimentos/AbastecimentosPage'
+import RegistrarAbastecimento from '@/pages/abastecimentos/registrar/RegistrarAbastecimento'
 import { UsersPage } from '@/pages/users/UsersPage'
 import { RequireAuth } from '@/components/RequireAuth/RequireAuth'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
@@ -16,7 +18,6 @@ import { VehiclesPage } from '@/pages/vehicles/VehiclesPage'
 
 // Módulos ainda sem tela própria: mesma página provisória, só muda o título.
 const COMING_SOON_ROUTES = [
-  { path: 'abastecimentos', title: 'Abastecimentos' },
   { path: 'manutencoes', title: 'Manutenções' },
   { path: 'relatorios', title: 'Relatórios' },
 ]
@@ -39,6 +40,8 @@ export function AppRoutes() {
           <Route path="viagens/:id" element={<RequestTrackingPage />} />
           <Route path="perfil" element={<ProfilePage />} />
           <Route path="usuarios" element={<UsersPage />} />
+          <Route path="abastecimentos" element={<AbastecimentosPage />} />
+          <Route path="abastecimentos/registrar" element={<RegistrarAbastecimento />} />
           {COMING_SOON_ROUTES.map(({ path, title }) => (
             <Route key={path} path={path} element={<ComingSoonPage title={title} />} />
           ))}
