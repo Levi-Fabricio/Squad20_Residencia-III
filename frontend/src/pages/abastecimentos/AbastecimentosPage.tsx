@@ -1,5 +1,5 @@
-import styles from './AbastecimentosPage.module.scss';
-import { Link } from 'react-router-dom';
+import styles from './AbastecimentosPage.module.scss'
+import { Link } from 'react-router-dom'
 
 export default function AbastecimentosPage() {
   return (
@@ -40,11 +40,31 @@ export default function AbastecimentosPage() {
             <h3>Teto de abastecimento · SVO-01</h3>
             <p className={styles.kpiSub}>ABC-1D23 · Outubro de 2026</p>
           </div>
-          <span style={{ background: '#fef3c7', color: '#b45309', padding: '0.2rem 0.6rem', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold' }}>Atenção · 85% utilizado</span>
+          <span
+            style={{
+              background: '#fef3c7',
+              color: '#b45309',
+              padding: '0.2rem 0.6rem',
+              borderRadius: '12px',
+              fontSize: '0.8rem',
+              fontWeight: 'bold',
+            }}
+          >
+            Atenção · 85% utilizado
+          </span>
         </div>
-        <h2 style={{ margin: '1rem 0 0.5rem 0' }}>R$ 850,00 <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 'normal' }}>85% do teto</span></h2>
-        <div className={styles.progressBarWarning}><div style={{ width: '85%' }}></div></div>
-        <p className={styles.kpiSub} style={{ color: '#b45309', marginTop: '0.5rem' }}>Restam R$ 150,00 para abastecimento neste mês.</p>
+        <h2 style={{ margin: '1rem 0 0.5rem 0' }}>
+          R$ 850,00{' '}
+          <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 'normal' }}>
+            85% do teto
+          </span>
+        </h2>
+        <div className={styles.progressBarWarning}>
+          <div style={{ width: '85%' }}></div>
+        </div>
+        <p className={styles.kpiSub} style={{ color: '#b45309', marginTop: '0.5rem' }}>
+          Restam R$ 150,00 para abastecimento neste mês.
+        </p>
       </div>
 
       {/* Filtros */}
@@ -65,12 +85,23 @@ export default function AbastecimentosPage() {
           <label htmlFor="filtroBusca">Buscar motorista ou posto</label>
           <input id="filtroBusca" type="text" placeholder="Buscar nos registros..." />
         </div>
-        <button className={styles.btnSecondary} style={{ height: '40px', marginTop: '1.4rem' }}>Filtrar</button>
+        <button
+          className={styles.btnSecondary}
+          style={{ height: '40px', marginTop: '1.4rem' }}
+        >
+          Filtrar
+        </button>
       </div>
 
       {/* Tabela */}
       <div className={styles.card}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginBottom: '1rem',
+          }}
+        >
           <h3>Histórico de abastecimentos</h3>
           <span className={styles.kpiSub}>3 registros</span>
         </div>
@@ -89,9 +120,17 @@ export default function AbastecimentosPage() {
           </thead>
           <tbody>
             <tr>
-              <td><strong>SVO-01 · Fiorino</strong><br/><span className={styles.subText}>ABC-1D23</span></td>
+              <td>
+                <strong>SVO-01 · Fiorino</strong>
+                <br />
+                <span className={styles.subText}>ABC-1D23</span>
+              </td>
               <td>Marina Costa</td>
-              <td>21/10/2026<br/><span className={styles.subText}>09:40</span></td>
+              <td>
+                21/10/2026
+                <br />
+                <span className={styles.subText}>09:40</span>
+              </td>
               <td>Gasolina</td>
               <td>30,00 L</td>
               <td>R$ 8,50</td>
@@ -99,9 +138,17 @@ export default function AbastecimentosPage() {
               <td>45.320 km</td>
             </tr>
             <tr>
-              <td><strong>SVO-01 · Fiorino</strong><br/><span className={styles.subText}>ABC-1D23</span></td>
+              <td>
+                <strong>SVO-01 · Fiorino</strong>
+                <br />
+                <span className={styles.subText}>ABC-1D23</span>
+              </td>
               <td>Paulo Lima</td>
-              <td>14/10/2026<br/><span className={styles.subText}>08:15</span></td>
+              <td>
+                14/10/2026
+                <br />
+                <span className={styles.subText}>08:15</span>
+              </td>
               <td>Gasolina</td>
               <td>35,00 L</td>
               <td>R$ 8,50</td>
@@ -112,5 +159,5 @@ export default function AbastecimentosPage() {
         </table>
       </div>
     </div>
-  );
+  )
 }

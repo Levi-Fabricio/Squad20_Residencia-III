@@ -1,5 +1,5 @@
-import AbastecimentosPage from '@/pages/abastecimentos/AbastecimentosPage';
-import RegistrarAbastecimento from '@/pages/abastecimentos/registrar/RegistrarAbastecimento';
+import AbastecimentosPage from '@/pages/abastecimentos/AbastecimentosPage'
+import RegistrarAbastecimento from '@/pages/abastecimentos/registrar/RegistrarAbastecimento'
 import { UsersPage } from '@/pages/users/UsersPage'
 import { RequireAuth } from '@/components/RequireAuth/RequireAuth'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'

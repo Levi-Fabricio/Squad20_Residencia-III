@@ -1,16 +1,20 @@
-import { useState } from 'react';
-import styles from './RegistrarAbastecimento.module.scss';
-import { Link } from 'react-router-dom';
+import { useState } from 'react'
+import styles from './RegistrarAbastecimento.module.scss'
+import { Link } from 'react-router-dom'
 
 export default function RegistrarAbastecimento() {
   // Estados para os campos
-  const [volume, setVolume] = useState('');
-  const [preco, setPreco] = useState('');
-  const [hodometro, setHodometro] = useState('');
-  const [dataHora, setDataHora] = useState(''); // Estado para a data e hora
+  const [volume, setVolume] = useState('')
+  const [preco, setPreco] = useState('')
+  const [hodometro, setHodometro] = useState('')
+  const [dataHora, setDataHora] = useState('') // Estado para a data e hora
 
   // Cálculo simples para o total
-  const total = (parseFloat(volume.replace(',', '.')) * parseFloat(preco.replace(',', '.')) || 0).toFixed(2).replace('.', ',');
+  const total = (
+    parseFloat(volume.replace(',', '.')) * parseFloat(preco.replace(',', '.')) || 0
+  )
+    .toFixed(2)
+    .replace('.', ',')
 
   return (
     <div className={styles.page}>
@@ -27,7 +31,7 @@ export default function RegistrarAbastecimento() {
           <section className={styles.card}>
             <h2>Veículo e responsável</h2>
             <p className={styles.subtitle}>Campos com * são obrigatórios.</p>
-            
+
             <div className={styles.formGroup}>
               <label htmlFor="veiculo">Veículo *</label>
               <select id="veiculo" defaultValue="SVO-01">
@@ -45,9 +49,9 @@ export default function RegistrarAbastecimento() {
               <div className={styles.formGroup}>
                 <label htmlFor="dataHora">Data e horário *</label>
                 {/* Campo nativo mostrando dd/mm/aaaa --:-- */}
-                <input 
+                <input
                   id="dataHora"
-                  type="datetime-local" 
+                  type="datetime-local"
                   value={dataHora}
                   onChange={(e) => setDataHora(e.target.value)}
                 />
@@ -57,12 +61,14 @@ export default function RegistrarAbastecimento() {
 
           <section className={styles.card}>
             <h2>Dados da despesa</h2>
-            
+
             <div className={styles.row}>
               <div className={styles.formGroup}>
                 <label htmlFor="combustivel">Combustível *</label>
                 <select id="combustivel" defaultValue="">
-                  <option value="" disabled>Selecione o combustível</option>
+                  <option value="" disabled>
+                    Selecione o combustível
+                  </option>
                   <option value="Gasolina">Gasolina</option>
                   <option value="Etanol">Etanol</option>
                   <option value="Diesel">Diesel</option>
@@ -70,12 +76,12 @@ export default function RegistrarAbastecimento() {
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor="hodometro">Hodômetro *</label>
-                <input 
+                <input
                   id="hodometro"
-                  type="text" 
-                  placeholder="Ex.: 00.000 km" 
+                  type="text"
+                  placeholder="Ex.: 00.000 km"
                   value={hodometro}
-                  onChange={e => setHodometro(e.target.value)}
+                  onChange={(e) => setHodometro(e.target.value)}
                 />
               </div>
             </div>
@@ -83,22 +89,22 @@ export default function RegistrarAbastecimento() {
             <div className={styles.row}>
               <div className={styles.formGroup}>
                 <label htmlFor="volume">Volume abastecido *</label>
-                <input 
+                <input
                   id="volume"
-                  type="text" 
-                  placeholder="Ex.: 00,00 L" 
-                  value={volume} 
-                  onChange={e => setVolume(e.target.value)} 
+                  type="text"
+                  placeholder="Ex.: 00,00 L"
+                  value={volume}
+                  onChange={(e) => setVolume(e.target.value)}
                 />
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor="preco">Preço por litro *</label>
-                <input 
+                <input
                   id="preco"
-                  type="text" 
-                  placeholder="Ex.: 00,00" 
-                  value={preco} 
-                  onChange={e => setPreco(e.target.value)} 
+                  type="text"
+                  placeholder="Ex.: 00,00"
+                  value={preco}
+                  onChange={(e) => setPreco(e.target.value)}
                 />
               </div>
             </div>
@@ -136,19 +142,27 @@ export default function RegistrarAbastecimento() {
             <div className={styles.progressInfo}>
               <span>R$ 595,00</span> <span>59,5% do teto</span>
             </div>
-            <div className={styles.progressBar}><div style={{ width: '59.5%' }}></div></div>
-            
-            <p className={styles.subtitle} style={{ marginTop: '1rem' }}>Este abastecimento</p>
+            <div className={styles.progressBar}>
+              <div style={{ width: '59.5%' }}></div>
+            </div>
+
+            <p className={styles.subtitle} style={{ marginTop: '1rem' }}>
+              Este abastecimento
+            </p>
             <strong style={{ color: '#1e40af' }}>+ R$ {total}</strong>
 
-            <p className={styles.subtitle} style={{ marginTop: '1rem' }}>Após salvar</p>
+            <p className={styles.subtitle} style={{ marginTop: '1rem' }}>
+              Após salvar
+            </p>
             <div className={styles.progressInfo}>
               <span>R$ 850,00</span> <span>85% do teto</span>
             </div>
-            <div className={styles.progressBarWarning}><div style={{ width: '85%' }}></div></div>
+            <div className={styles.progressBarWarning}>
+              <div style={{ width: '85%' }}></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  );
+  )
 }
