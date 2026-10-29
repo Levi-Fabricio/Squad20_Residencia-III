@@ -11,11 +11,14 @@ import { ComingSoonPage } from '@/pages/placeholder/ComingSoonPage'
 import { NotFoundPage } from '@/pages/placeholder/NotFoundPage'
 import ProfilePage from '@/pages/perfil'
 import { VehiclesPage } from '@/pages/vehicles/VehiclesPage'
+import {
+  ManutencoesPage,
+  RegistrarManutencaoPage,
+} from '@/pages/manutencoes/ManutencoesPage'
 
 // Módulos ainda sem tela própria: mesma página provisória, só muda o título.
 const COMING_SOON_ROUTES = [
   { path: 'abastecimentos', title: 'Abastecimentos' },
-  { path: 'manutencoes', title: 'Manutenções' },
   { path: 'viagens', title: 'Viagens' },
   { path: 'relatorios', title: 'Relatórios' },
 ]
@@ -30,6 +33,9 @@ export function AppRoutes() {
         <Route element={<AppLayout />}>
           <Route index element={<HomePage />} />
           <Route path="veiculos" element={<VehiclesPage />} />
+          <Route path="manutencoes" element={<ManutencoesPage />} />
+          <Route path="manutencoes/nova" element={<RegistrarManutencaoPage />} />
+          <Route path="manutencoes/editar/:id" element={<RegistrarManutencaoPage />} />
           <Route path="motoristas" element={<DriversPage />} />
           <Route path="motoristas/novo" element={<DriverFormPage />} />
           <Route path="motoristas/editar/:id" element={<DriverFormPage />} />
