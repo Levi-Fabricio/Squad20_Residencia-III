@@ -1,15 +1,18 @@
 import { useState } from 'react'
+import { PageHeader } from '@/components/PageHeader'
+import { Button } from '@/components/Button'
+import { ButtonLink } from '@/components/ButtonLink'
+import { TextField } from '@/components/TextField'
+import { SelectField } from '@/components/SelectField'
 import styles from './RegistrarAbastecimento.module.scss'
-import { Link } from 'react-router-dom'
 
 export default function RegistrarAbastecimento() {
-  // Estados para os campos
   const [volume, setVolume] = useState('')
   const [preco, setPreco] = useState('')
   const [hodometro, setHodometro] = useState('')
-  const [dataHora, setDataHora] = useState('') // Estado para a data e hora
+  const [dataHora, setDataHora] = useState('')
+  const [posto, setPosto] = useState('')
 
-  // Cálculo simples para o total
   const total = (
     parseFloat(volume.replace(',', '.')) * parseFloat(preco.replace(',', '.')) || 0
   )
@@ -18,147 +21,108 @@ export default function RegistrarAbastecimento() {
 
   return (
     <div className={styles.page}>
-      <header className={styles.header}>
-        <div>
-          <h1>Registrar abastecimento</h1>
-          <p>Registre a despesa e mantenha o histórico do veículo atualizado.</p>
-        </div>
-      </header>
+      <PageHeader
+        title="Registrar abastecimento"
+        subtitle="Registre a despesa e mantenha o histórico do veículo atualizado."
+      />
 
       <div className={styles.layoutGrid}>
-        {/* Coluna Esquerda - Formulário */}
-        <div className={styles.formColumn}>
+        <form className={styles.formColumn}>
           <section className={styles.card}>
-            <h2>Veículo e responsável</h2>
-            <p className={styles.subtitle}>Campos com * são obrigatórios.</p>
+            <h2 className={styles.cardTitle}>Veículo e responsável</h2>
 
-            <div className={styles.formGroup}>
-              <label htmlFor="veiculo">Veículo *</label>
-              <select id="veiculo" defaultValue="SVO-01">
-                <option value="SVO-01">SVO-01 · Fiat Fiorino 1.4 · ABC-1D23</option>
-              </select>
-            </div>
-
-            <div className={styles.row}>
-              <div className={styles.formGroup}>
-                <label htmlFor="motorista">Motorista *</label>
-                <select id="motorista" defaultValue="Marina">
-                  <option value="Marina">Marina Costa</option>
-                </select>
-              </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="dataHora">Data e horário *</label>
-                {/* Campo nativo mostrando dd/mm/aaaa --:-- */}
-                <input
-                  id="dataHora"
-                  type="datetime-local"
-                  value={dataHora}
-                  onChange={(e) => setDataHora(e.target.value)}
-                />
-              </div>
+            <div className={styles.fieldsGrid}>
+              <SelectField
+                label="Veículo *"
+                value="svo-01"
+                options={[{ value: 'svo-01', label: 'SVO-01 · Fiat Fiorino 1.4' }]}
+                onChange={() => {}}
+              />
+              <SelectField
+                label="Motorista *"
+                value="marina"
+                options={[{ value: 'marina', label: 'Marina Costa' }]}
+                onChange={() => {}}
+              />
+              <TextField
+                label="Data e horário *"
+                type="datetime-local"
+                value={dataHora}
+                onChange={setDataHora}
+              />
             </div>
           </section>
 
           <section className={styles.card}>
-            <h2>Dados da despesa</h2>
+            <h2 className={styles.cardTitle}>Dados da despesa</h2>
 
-            <div className={styles.row}>
-              <div className={styles.formGroup}>
-                <label htmlFor="combustivel">Combustível *</label>
-                <select id="combustivel" defaultValue="">
-                  <option value="" disabled>
-                    Selecione o combustível
-                  </option>
-                  <option value="Gasolina">Gasolina</option>
-                  <option value="Etanol">Etanol</option>
-                  <option value="Diesel">Diesel</option>
-                </select>
-              </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="hodometro">Hodômetro *</label>
-                <input
-                  id="hodometro"
-                  type="text"
-                  placeholder="Ex.: 00.000 km"
-                  value={hodometro}
-                  onChange={(e) => setHodometro(e.target.value)}
-                />
-              </div>
-            </div>
-
-            <div className={styles.row}>
-              <div className={styles.formGroup}>
-                <label htmlFor="volume">Volume abastecido *</label>
-                <input
-                  id="volume"
-                  type="text"
-                  placeholder="Ex.: 00,00 L"
-                  value={volume}
-                  onChange={(e) => setVolume(e.target.value)}
-                />
-              </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="preco">Preço por litro *</label>
-                <input
-                  id="preco"
-                  type="text"
-                  placeholder="Ex.: 00,00"
-                  value={preco}
-                  onChange={(e) => setPreco(e.target.value)}
-                />
-              </div>
+            <div className={styles.fieldsGrid}>
+              <SelectField
+                label="Combustível *"
+                value=""
+                options={[
+                  { value: 'gasolina', label: 'Gasolina' },
+                  { value: 'etanol', label: 'Etanol' },
+                  { value: 'diesel', label: 'Diesel' },
+                ]}
+                onChange={() => {}}
+              />
+              <TextField
+                label="Hodômetro *"
+                placeholder="Ex.: 45.320 km"
+                value={hodometro}
+                onChange={setHodometro}
+              />
+              <TextField
+                label="Volume abastecido *"
+                placeholder="Ex.: 30,00 L"
+                value={volume}
+                onChange={setVolume}
+              />
+              <TextField
+                label="Preço por litro *"
+                placeholder="Ex.: 8,50"
+                value={preco}
+                onChange={setPreco}
+              />
+              <TextField
+                label="Posto *"
+                placeholder="Ex.: Posto Sul"
+                value={posto}
+                onChange={setPosto}
+              />
             </div>
 
             <div className={styles.totalBox}>
               <span>Total calculado</span>
-              <span className={styles.totalValue}>R$ {total}</span>
-            </div>
-
-            <div className={styles.formGroup} style={{ marginTop: '1rem' }}>
-              <label htmlFor="posto">Posto *</label>
-              <input id="posto" type="text" placeholder="Ex.: Posto Sul" />
+              <strong>R$ {total}</strong>
             </div>
           </section>
 
           <div className={styles.actions}>
-            <Link to="/abastecimentos" className={styles.btnSecondary}>
+            <ButtonLink to="/abastecimentos" variant="secondary">
               Cancelar
-            </Link>
-            <button className={styles.btnPrimary}>✓ Salvar abastecimento</button>
+            </ButtonLink>
+            <Button type="button" onClick={() => alert('Salvar clicado')}>
+              Salvar abastecimento
+            </Button>
           </div>
-        </div>
+        </form>
 
         {/* Coluna Direita - Resumos */}
         <div className={styles.summaryColumn}>
           <div className={styles.card}>
-            <h3>SVO-01 · Fiat Fiorino 1.4</h3>
-            <p className={styles.plate}>ABC-1D23</p>
-            <p className={styles.vehicleInfo}>45.320 km · Administrativa · Flex · 58 L</p>
+            <h3 className={styles.cardTitle}>SVO-01 · Fiat Fiorino 1.4</h3>
+            <p className={styles.subtitle}>Placa: ABC-1D23</p>
+            <p className={styles.subtitle}>45.320 km · Administrativa · Flex · 58 L</p>
           </div>
-
           <div className={styles.card}>
-            <h3>Impacto no teto mensal</h3>
-            <p className={styles.subtitle}>Abastecimento · Outubro de 2026</p>
+            <h3 className={styles.cardTitle}>Impacto no teto mensal</h3>
             <div className={styles.progressInfo}>
               <span>R$ 595,00</span> <span>59,5% do teto</span>
             </div>
             <div className={styles.progressBar}>
               <div style={{ width: '59.5%' }}></div>
-            </div>
-
-            <p className={styles.subtitle} style={{ marginTop: '1rem' }}>
-              Este abastecimento
-            </p>
-            <strong style={{ color: '#1e40af' }}>+ R$ {total}</strong>
-
-            <p className={styles.subtitle} style={{ marginTop: '1rem' }}>
-              Após salvar
-            </p>
-            <div className={styles.progressInfo}>
-              <span>R$ 850,00</span> <span>85% do teto</span>
-            </div>
-            <div className={styles.progressBarWarning}>
-              <div style={{ width: '85%' }}></div>
             </div>
           </div>
         </div>
