@@ -21,29 +21,52 @@ interface Abastecimento {
 }
 
 const MOCK_DATA: Abastecimento[] = [
-  { id: '1', veiculo: 'SVO-01', placa: 'ABC-1D23', motorista: 'Marina Costa', data: '21/10/2026', litros: '30,00 L', total: 'R$ 255,00', status: 'ok' },
-  { id: '2', veiculo: 'SVO-01', placa: 'ABC-1D23', motorista: 'Paulo Lima', data: '14/10/2026', litros: '35,00 L', total: 'R$ 297,50', status: 'alerta' },
+  {
+    id: '1',
+    veiculo: 'SVO-01',
+    placa: 'ABC-1D23',
+    motorista: 'Marina Costa',
+    data: '21/10/2026',
+    litros: '30,00 L',
+    total: 'R$ 255,00',
+    status: 'ok',
+  },
+  {
+    id: '2',
+    veiculo: 'SVO-01',
+    placa: 'ABC-1D23',
+    motorista: 'Paulo Lima',
+    data: '14/10/2026',
+    litros: '35,00 L',
+    total: 'R$ 297,50',
+    status: 'alerta',
+  },
 ]
 
 const COLUMNS: DataTableColumn<Abastecimento>[] = [
-  { 
-    key: 'veiculo', 
-    header: 'Veículo', 
-    isPrimary: true, 
-    render: (item) => <>{item.veiculo} <br/><small style={{ color: 'var(--text-muted)' }}>{item.placa}</small></> 
+  {
+    key: 'veiculo',
+    header: 'Veículo',
+    isPrimary: true,
+    render: (item) => (
+      <>
+        {item.veiculo} <br />
+        <small style={{ color: 'var(--text-muted)' }}>{item.placa}</small>
+      </>
+    ),
   },
   { key: 'motorista', header: 'Motorista', render: (item) => item.motorista },
   { key: 'data', header: 'Data', render: (item) => item.data },
   { key: 'litros', header: 'Litros', render: (item) => item.litros },
   { key: 'total', header: 'Valor Total', render: (item) => item.total },
-  { 
-    key: 'status', 
-    header: 'Status', 
+  {
+    key: 'status',
+    header: 'Status',
     render: (item) => (
       <Badge variant={item.status === 'ok' ? 'success' : 'warning'}>
         {item.status === 'ok' ? 'Dentro do teto' : 'Atenção'}
       </Badge>
-    ) 
+    ),
   },
 ]
 
@@ -88,12 +111,13 @@ export default function AbastecimentosPage() {
           label="Filtrar por veículo"
           isLabelHidden
           value="todos"
-          options={[{ value: 'todos', label: 'Veículo: Todos' }, { value: 'svo01', label: 'SVO-01' }]}
+          options={[
+            { value: 'todos', label: 'Veículo: Todos' },
+            { value: 'svo01', label: 'SVO-01' },
+          ]}
           onChange={() => {}}
         />
-        <ButtonLink to="/abastecimentos/registrar">
-          + Novo Abastecimento
-        </ButtonLink>
+        <ButtonLink to="/abastecimentos/registrar">+ Novo Abastecimento</ButtonLink>
       </Toolbar>
 
       <section className={styles.list} aria-label="Abastecimentos">

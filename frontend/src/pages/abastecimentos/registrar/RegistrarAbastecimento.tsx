@@ -13,7 +13,11 @@ export default function RegistrarAbastecimento() {
   const [dataHora, setDataHora] = useState('')
   const [posto, setPosto] = useState('')
 
-  const total = (parseFloat(volume.replace(',', '.')) * parseFloat(preco.replace(',', '.')) || 0).toFixed(2).replace('.', ',')
+  const total = (
+    parseFloat(volume.replace(',', '.')) * parseFloat(preco.replace(',', '.')) || 0
+  )
+    .toFixed(2)
+    .replace('.', ',')
 
   return (
     <div className={styles.page}>
@@ -26,7 +30,7 @@ export default function RegistrarAbastecimento() {
         <form className={styles.formColumn}>
           <section className={styles.card}>
             <h2 className={styles.cardTitle}>Veículo e responsável</h2>
-            
+
             <div className={styles.fieldsGrid}>
               <SelectField
                 label="Veículo *"
@@ -51,7 +55,7 @@ export default function RegistrarAbastecimento() {
 
           <section className={styles.card}>
             <h2 className={styles.cardTitle}>Dados da despesa</h2>
-            
+
             <div className={styles.fieldsGrid}>
               <SelectField
                 label="Combustível *"
@@ -59,7 +63,7 @@ export default function RegistrarAbastecimento() {
                 options={[
                   { value: 'gasolina', label: 'Gasolina' },
                   { value: 'etanol', label: 'Etanol' },
-                  { value: 'diesel', label: 'Diesel' }
+                  { value: 'diesel', label: 'Diesel' },
                 ]}
                 onChange={() => {}}
               />
@@ -117,7 +121,9 @@ export default function RegistrarAbastecimento() {
             <div className={styles.progressInfo}>
               <span>R$ 595,00</span> <span>59,5% do teto</span>
             </div>
-            <div className={styles.progressBar}><div style={{ width: '59.5%' }}></div></div>
+            <div className={styles.progressBar}>
+              <div style={{ width: '59.5%' }}></div>
+            </div>
           </div>
         </div>
       </div>

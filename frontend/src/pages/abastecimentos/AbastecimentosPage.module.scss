@@ -11,7 +11,9 @@
   flex-direction: column;
   gap: $space-4;
   // Sombra sutil na área da tabela para destacar do fundo
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.06);
   border-radius: 8px;
 }
 
@@ -27,29 +29,37 @@
   border-radius: 8px;
   padding: $space-4;
   // AQUI ESTÁ O SOMBREADO IGUAL AO DA TELA DE MOTORISTAS
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.06);
   // O detalhe da borda colorida na esquerda (igual ao da tela de motoristas)
   border-left-width: 4px;
-  
+
   // Vamos colorir as bordas esquerdas de cada card (igual ao print)
-  &:nth-child(1) { border-left-color: #10b981; } // Verde
-  &:nth-child(2) { border-left-color: #f59e0b; } // Amarelo
-  &:nth-child(3) { border-left-color: #ef4444; } // Vermelho
+  &:nth-child(1) {
+    border-left-color: #10b981;
+  } // Verde
+  &:nth-child(2) {
+    border-left-color: #f59e0b;
+  } // Amarelo
+  &:nth-child(3) {
+    border-left-color: #ef4444;
+  } // Vermelho
 }
 
-.statLabel { 
-  font-size: 0.85rem; 
-  color: #64748b; 
-  font-weight: 600; 
+.statLabel {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 600;
 }
 
-.statValue { 
-  font-size: 1.8rem; 
-  color: #1e293b; 
-  margin: 0.5rem 0; 
+.statValue {
+  font-size: 1.8rem;
+  color: #1e293b;
+  margin: 0.5rem 0;
 }
 
-.statDesc { 
-  font-size: 0.8rem; 
-  color: #94a3b8; 
+.statDesc {
+  font-size: 0.8rem;
+  color: #94a3b8;
 }
