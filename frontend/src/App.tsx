@@ -24,7 +24,6 @@ import {
 const COMING_SOON_ROUTES = [
   { path: 'abastecimentos', title: 'Abastecimentos' },
   { path: 'viagens', title: 'Viagens' },
-  { path: 'manutencoes', title: 'Manutenções' },
   { path: 'relatorios', title: 'Relatórios' },
 ]
 

@@ -1,4 +1,118 @@
-.page { display: flex; flex-direction: column; gap: 1.5rem; padding-bottom: 2rem; }
-.header { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-.overlay { position: fixed; inset: 0; z-index: 1050; background: rgb(0 0 0 / 55%); display: flex; align-items: center; justify-content: center; padding: 1rem; }
-.dialog { background: var(--bs-body-bg, white); color: var(--bs-body-color, #222); border-radius: .75rem; padding: 1.5rem; width: min(100%, 640px); max-height: 90vh; overflow-y: auto; box-shadow: 0 15px 50px rgb(0 0 0 / 20%); }
+
+@use '../../styles/tokens' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+
+  :global(.btn) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    min-height: 38px;
+    padding: 0.5rem 0.9rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25;
+    text-decoration: none;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+
+  :global(.btn-primary) {
+    background-color: #2164a5;
+    border-color: #2164a5;
+    color: #fff;
+
+    &:hover {
+      background-color: #194f84;
+      border-color: #194f84;
+      color: #fff;
+    }
+  }
+
+  :global(.btn-outline-primary) {
+    background: #fff;
+    border: 1px solid #b8d0e8;
+    color: #2164a5;
+
+    &:hover {
+      background: #edf5fc;
+      border-color: #2164a5;
+      color: #194f84;
+    }
+  }
+
+  :global(.btn-outline-secondary) {
+    background: #fff;
+    border: 1px solid #d5dbe3;
+    color: #475569;
+
+    &:hover {
+      background: #f1f5f9;
+      border-color: #b8c2ce;
+      color: #334155;
+    }
+  }
+
+  :global(.btn-outline-danger) {
+    background: #fff;
+    border: 1px solid #efc0c0;
+    color: #c62828;
+
+    &:hover {
+      background: #fff1f1;
+      border-color: #c62828;
+      color: #a51d1d;
+    }
+  }
+
+  :global(.btn-sm) {
+    min-height: 32px;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8125rem;
+  }
+
+  :global(.btn:focus-visible) {
+    outline: 2px solid #2164a5;
+    outline-offset: 2px;
+  }
+
+  :global(.btn:disabled) {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  background: rgb(0 0 0 / 55%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.dialog {
+  background: #fff;
+  color: #222;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  width: min(100%, 640px);
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 15px 50px rgb(0 0 0 / 20%);
+}
